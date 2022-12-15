@@ -7,7 +7,7 @@ name: Deploy transformations
 
 on:
     push:
-        #branches: [main]
+    #branches: [main]
         branches: [none]
 
 jobs:
@@ -19,25 +19,25 @@ jobs:
                 environment: [test, prod]
                 include:
                     - environment: test
-                      # CDF cluster, like bluefield, greenfield or westeurope-1
-                      CDF_CLUSTER: [CDF cluster]
-                      # CDF Project name
-                      CDF_PROJECT: [CDF project]
-                      # Azure AD tenant id
-                      IDP_TENANT: [AAD tenant id]
+            # CDF cluster, like bluefield, greenfield or westeurope-1
+                      CDF_CLUSTER: westeurope-1
+            # CDF Project name
+                      CDF_PROJECT: cdf-bootcamp-11-test
+            # Azure AD tenant id
+                      IDP_TENANT: 16e3985b-ebe8-4e24-9da4-933e21a9fc81
                     - environment: prod
-                      # CDF cluster, like bluefield, greenfield or westeurope-1
-                      CDF_CLUSTER: [CDF cluster]
-                      # CDF Project name
-                      CDF_PROJECT: [CDF project]
-                      # Azure AD tenant id
-                      IDP_TENANT: [AAD tenant id]
+            # CDF cluster, like bluefield, greenfield or westeurope-1
+                      CDF_CLUSTER: westeurope-1
+            # CDF Project name
+                      CDF_PROJECT: cdf-bootcamp-11-prod
+            # Azure AD tenant id
+                      IDP_TENANT: 16e3985b-ebe8-4e24-9da4-933e21a9fc81
 
         environment: ${{ matrix.environment}}
         env:
             CDF_HOST: https://${{ matrix.CDF_CLUSTER }}.cognitedata.com/
-            # Credentials to be used when running your transformations,
-            # as referenced in your manifests
+      # Credentials to be used when running your transformations,
+      # as referenced in your manifests
             COGNITE_CLIENT_ID: ${{ secrets.CLIENT_ID }}
             COGNITE_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
             CDF_PROJECT_NAME: ${{ matrix.CDF_PROJECT }}

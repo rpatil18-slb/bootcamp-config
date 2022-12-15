@@ -61,7 +61,7 @@ bootstrap:
                 idp-source-id: 76aac921-e86a-4a6f-a5e7-9c9c4817293e
                 idp-source-name: bootcamp-11-test-admin
               - cdf-group: cdf:all:owner
-                idp-source-id: e517e9fb-025b-431b-8e96-592193dfade1
+                idp-source-id: e3db000d-8867-4f90-91e3-7f6af83cc053
                 idp-source-name: bootcamp-11-test-all-owner
               - cdf-group: cdf:all:read
                 idp-source-id: e517e9fb-025b-431b-8e96-592193dfade1
@@ -91,7 +91,7 @@ bootstrap:
                 description: Source 01 data from SAP
               - node-name: src:002:opcua
                 description: Source 02 data from opcua
-                
+
         # Typical config will have separate namespace by data source ("src") and use cases ("uc")
         - ns-name: uc
           description: Use cases representing the data/products
@@ -101,9 +101,9 @@ bootstrap:
               - node-name: uc:001:oee
                 description: Use case 001 Over all Equipment effectiveness
                 shared-access:
-                  read:
-                    - node-name: src:001:sap
-                    - node-name: src:002:opcua
+                    read:
+                        - node-name: src:001:sap
+                        - node-name: src:002:opcua
 
 # de-facto standards for CDF CogniteClient and logger configuration.
 # Following the same parameter structure as the 'Cognite Python Extractor-Utilities'
